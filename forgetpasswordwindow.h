@@ -1,0 +1,29 @@
+#ifndef FORGETPASSWORDWINDOW_H
+#define FORGETPASSWORDWINDOW_H
+
+#include <QDialog>
+
+namespace Ui {
+class ForgetPasswordWindow;
+}
+
+class ForgetPasswordWindow : public QDialog
+{
+    Q_OBJECT
+
+
+
+public:
+    explicit ForgetPasswordWindow(QWidget *parent = nullptr);
+    ~ForgetPasswordWindow();
+signals:
+    void signal_username(QString);
+    void signal_password(QString);
+private slots:
+    void on_buttonBox_accepted();
+
+private:
+    Ui::ForgetPasswordWindow *ui;
+};
+
+#endif // FORGETPASSWORDWINDOW_H
