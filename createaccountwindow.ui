@@ -33,6 +33,8 @@
      <property name="font">
       <font>
        <pointsize>11</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
      </property>
     </widget>
@@ -52,7 +54,15 @@
     </widget>
    </item>
    <item>
-    <widget class="QLineEdit" name="input_username"/>
+    <widget class="QLineEdit" name="input_username">
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+    </widget>
    </item>
    <item>
     <widget class="QLabel" name="label_3">
@@ -69,7 +79,15 @@
     </widget>
    </item>
    <item>
-    <widget class="QLineEdit" name="input_password"/>
+    <widget class="QLineEdit" name="input_password">
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+    </widget>
    </item>
    <item>
     <widget class="QLabel" name="label_4">
@@ -86,7 +104,15 @@
     </widget>
    </item>
    <item>
-    <widget class="QLineEdit" name="input_email"/>
+    <widget class="QLineEdit" name="input_email">
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+    </widget>
    </item>
    <item>
     <widget class="QLabel" name="label_5">
@@ -103,7 +129,15 @@
     </widget>
    </item>
    <item>
-    <widget class="QLineEdit" name="input_phone_number"/>
+    <widget class="QLineEdit" name="input_phone_number">
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+    </widget>
    </item>
    <item>
     <widget class="QPushButton" name="create_button">
@@ -113,6 +147,9 @@
        <weight>75</weight>
        <bold>true</bold>
       </font>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::ClickFocus</enum>
      </property>
      <property name="text">
       <string>Create Account</string>
