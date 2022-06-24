@@ -22,6 +22,12 @@ private slots:
 
     void on_my_account_button_clicked();
 
+    void on_my_project_button_clicked();
+
+    void catch_id(int id);
+
+    void on_add_member_button_clicked();
+
 private:
     Ui::MainWindow *ui;
     static User user;

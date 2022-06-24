@@ -4,6 +4,8 @@
 #include "loginwindow.h"
 #include "settingwindow.h"
 #include "QDebug"
+#include "projectswindow.h"
+#include "QJsonArray"
 
 MainWindow::MainWindow(User user,QWidget *parent)
     : QMainWindow(parent)
@@ -15,6 +17,9 @@ MainWindow::MainWindow(User user,QWidget *parent)
         ui->project_name->setStyleSheet("color: rgb(255,25,25)");
         ui->project_name->setText("no project selected");
     }
+
+
+
 }
 
 MainWindow::~MainWindow()
@@ -45,4 +50,26 @@ void MainWindow::on_my_account_button_clicked()
     SettingWindow *sw = new SettingWindow(this);
 
     sw->show();
+}
+
+void MainWindow::on_my_project_button_clicked()
+{
+    ProjectsWindow *projectsWindow = new ProjectsWindow();
+    projectsWindow->show();
+
+    connect(projectsWindow, SIGNAL(send_project_id(int)), this, SLOT(catch_id(int)));
+
+
+}
+
+void MainWindow::catch_id(int id)
+{
+
+}
+
+
+
+void MainWindow::on_add_member_button_clicked()
+{
+
 }

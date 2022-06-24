@@ -17,30 +17,38 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     createaccountwindow.cpp \
+    createprojectwindow.cpp \
     data/database/database.cpp \
+    data/model/project.cpp \
     data/model/user.cpp \
     forgetpasswordwindow.cpp \
     loginwindow.cpp \
     main.cpp \
     mainwindow.cpp \
+    projectswindow.cpp \
     settingwindow.cpp \
     utils/exception.cpp
 
 HEADERS += \
     createaccountwindow.h \
+    createprojectwindow.h \
     data/database/database.h \
+    data/model/project.h \
     data/model/user.h \
     forgetpasswordwindow.h \
     loginwindow.h \
     mainwindow.h \
+    projectswindow.h \
     settingwindow.h \
     utils/exception.h
 
 FORMS += \
     createaccountwindow.ui \
+    createprojectwindow.ui \
     forgetpasswordwindow.ui \
     loginwindow.ui \
     mainwindow.ui \
+    projectswindow.ui \
     settingwindow.ui
 
 # Default rules for deployment.
