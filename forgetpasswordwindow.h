@@ -20,7 +20,10 @@ signals:
     void signal_username(QString);
     void signal_password(QString);
 private slots:
-    void on_buttonBox_accepted();
+
+    void on_save_button_clicked();
+
+    void on_cancel_button_clicked();
 
 private:
     Ui::ForgetPasswordWindow *ui;

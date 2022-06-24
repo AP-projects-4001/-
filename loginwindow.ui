@@ -55,6 +55,8 @@
      <property name="font">
       <font>
        <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
      </property>
      <property name="text">
@@ -66,13 +68,23 @@
     </widget>
    </item>
    <item>
-    <widget class="QLineEdit" name="set_username"/>
+    <widget class="QLineEdit" name="set_username">
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+    </widget>
    </item>
    <item>
     <widget class="QLabel" name="pass">
      <property name="font">
       <font>
        <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
      </property>
      <property name="text">
@@ -84,14 +96,27 @@
     </widget>
    </item>
    <item>
-    <widget class="QLineEdit" name="set_pasword"/>
+    <widget class="QLineEdit" name="set_pasword">
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+    </widget>
    </item>
    <item>
     <widget class="QPushButton" name="login_button">
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>11</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::ClickFocus</enum>
      </property>
      <property name="acceptDrops">
       <bool>false</bool>
@@ -105,7 +130,9 @@
     <widget class="QPushButton" name="forget_password_Button">
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>11</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
      </property>
      <property name="text">
@@ -125,6 +152,8 @@
      <property name="font">
       <font>
        <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
      </property>
      <property name="text">
@@ -139,7 +168,9 @@
     <widget class="QPushButton" name="create_account_button">
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>11</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
      </property>
      <property name="text">

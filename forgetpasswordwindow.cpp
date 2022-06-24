@@ -15,7 +15,9 @@ ForgetPasswordWindow::~ForgetPasswordWindow() {
     delete ui;
 }
 
-void ForgetPasswordWindow::on_buttonBox_accepted() {
+
+void ForgetPasswordWindow::on_save_button_clicked()
+{
     User user;
     Database database;
     user = database.get_user(ui->username_line->text());
@@ -32,11 +34,16 @@ void ForgetPasswordWindow::on_buttonBox_accepted() {
             emit signal_password(ui->newpassword_line->text());
 
             QMessageBox::information(this, "Success", "Changed Password");
+            ForgetPasswordWindow::on_cancel_button_clicked();
 
         } else {
             QMessageBox::warning(this, "Error", "The Username Is Not Exist");
         }
     }
 
+}
 
+void ForgetPasswordWindow::on_cancel_button_clicked()
+{
+    ForgetPasswordWindow::close();
 }

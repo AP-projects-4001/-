@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>452</width>
-    <height>390</height>
+    <width>453</width>
+    <height>475</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,9 @@
     <widget class="QLabel" name="label">
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>11</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
      </property>
      <property name="text">
@@ -27,13 +29,21 @@
     </widget>
    </item>
    <item>
-    <widget class="QLineEdit" name="input_name"/>
+    <widget class="QLineEdit" name="input_name">
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+    </widget>
    </item>
    <item>
     <widget class="QLabel" name="label_2">
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>11</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
      </property>
      <property name="text">
@@ -48,7 +58,9 @@
     <widget class="QLabel" name="label_3">
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>11</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
      </property>
      <property name="text">
@@ -63,7 +75,9 @@
     <widget class="QLabel" name="label_4">
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>11</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
      </property>
      <property name="text">
@@ -78,7 +92,9 @@
     <widget class="QLabel" name="label_5">
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>11</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
      </property>
      <property name="text">
@@ -93,7 +109,9 @@
     <widget class="QPushButton" name="create_button">
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>11</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
      </property>
      <property name="text">
@@ -105,7 +123,9 @@
     <widget class="QPushButton" name="exitBtn">
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>11</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
      </property>
      <property name="text">
