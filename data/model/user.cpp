@@ -20,12 +20,13 @@ User::User() {
 
 }
 
-User::User(QString name, QString username, QString password, QString email, QString phone_number, int id) {
+User::User(QString name, QString username, QString password, QString email, QString phone_number, int id, QJsonArray projects_id) {
     this->name = name;
     this->username = username;
     this->password = password;
     this->id =id;
     this->email = email;
+    this->projects_id = projects_id;
     this->phone_number = phone_number;
 
 }
@@ -56,7 +57,7 @@ int User::get_id()
     return this->id;
 }
 
-QList <QString> User::get_projects_id() {
+QJsonArray User::get_projects_id() {
     return this->projects_id;
 }
 
@@ -80,7 +81,7 @@ void User::set_phone_number(QString phone_number) {
     this->phone_number = phone_number;
 }
 
-void User::set_projects_id(QList <QString> projects_id) {
+void User::set_projects_id(QJsonArray projects_id) {
     this->projects_id = projects_id;
 }
 
@@ -91,7 +92,6 @@ void User::set_id(int id)
 
 QJsonObject User::toJsonObject() {
     QJsonObject res;
-    QJsonArray projects_id;
     res["name"] = get_name();
     res["username"] = get_username();
     res["password"] = get_password();
@@ -99,11 +99,7 @@ QJsonObject User::toJsonObject() {
 
     res["id"] = get_id();
     res["phone_number"] = get_phone_number();
-    foreach(QString
-    value, get_projects_id()) {
-        projects_id.append(value);
-    }
-    res["projects_id"] = projects_id;
+    res["projects_id"] = get_projects_id();
 
     return res;
 }

@@ -9,8 +9,7 @@
 #include <QThread>
 #include <iostream>
 
-Database::Database()
-{
+Database::Database() {
 
 }
 
@@ -19,25 +18,23 @@ User Database::get_user(QString username) {
 
     QJsonArray users = get_users();
 
-    foreach(QJsonValue
-    value, users) {
+    foreach(QJsonValue value, users) {
         if (value["username"] == username)
             return User(value["name"].toString(), value["username"].toString(), value["password"].toString(),
-                    value["email"].toString(), value["phone_number"].toString(), value["id"].toInt());
+                        value["email"].toString(), value["phone_number"].toString(), value["id"].toInt(),value["projects_id"].toArray());
     }
 
     return User();
 }
 
-User Database::get_user_by_id(int id)
-{
+User Database::get_user_by_id(int id) {
     QJsonArray users = get_users();
 
-    foreach(QJsonValue
-    value, users) {
-        if (value["id"] == id)
+    foreach(QJsonValue value, users) {
+        if (value["id"].toInt() == id) {
             return User(value["name"].toString(), value["username"].toString(), value["password"].toString(),
-                        value["email"].toString(), value["phone_number"].toString(), value["id"].toInt());
+                        value["email"].toString(), value["phone_number"].toString(), value["id"].toInt(),value["projects_id"].toArray());
+        }
     }
 
     return User();
@@ -64,11 +61,10 @@ void Database::edit_user(QString username, User user) {
     DBW.close();
 }
 
-void Database::edit_user_by_id(int id, User user)
-{
-    qDebug() << id << "------" << get_user(user.get_username()).get_id();
+void Database::edit_user_by_id(int id, User user) {
+
     if (user.get_username() == get_user(user.get_username()).get_username()
-            && id != get_user(user.get_username()).get_id()) {
+        && id != get_user(user.get_username()).get_id()) {
         throw Exception(0, "username is exists");
     }
 
@@ -77,13 +73,10 @@ void Database::edit_user_by_id(int id, User user)
 
     users.replace(id, user.toJsonObject());
 
-    qDebug() << user.toJsonObject();
-
     QFile DBW("Users.json");
     DBW.open(QIODevice::WriteOnly);
     QJsonObject result;
     result["Users"] = users;
-    qDebug() << result;
     DBW.write(QJsonDocument(result).toJson());
 
     DBW.close();
