@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ProjectsWindow</class>
+ <widget class="QDialog" name="ProjectsWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>341</width>
+    <height>454</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>341</width>
+    <height>454</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>341</width>
+    <height>454</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QListWidget" name="projects_list">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>321</width>
+     <height>394</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="create_project_button">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>414</y>
+     <width>90</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>add project</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="close_button">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>414</y>
+     <width>90</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>close</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="close_button_2">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>414</y>
+     <width>90</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>ok</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
