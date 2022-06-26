@@ -31,6 +31,16 @@ User::User(QString name, QString username, QString password, QString email, QStr
 
 }
 
+QString User::get_position()
+{
+    return position;
+}
+
+void User::set_position(QString position)
+{
+    this->position = position;
+}
+
 QString User::get_name() {
     return this->name;
 
@@ -96,7 +106,7 @@ QJsonObject User::toJsonObject() {
     res["username"] = get_username();
     res["password"] = get_password();
     res["email"] = get_email();
-
+    res["position"] = get_position();
     res["id"] = get_id();
     res["phone_number"] = get_phone_number();
     res["projects_id"] = get_projects_id();

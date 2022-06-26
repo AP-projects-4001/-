@@ -18,6 +18,7 @@ private:
     QString phone_number;
     int id;
     QJsonArray projects_id;
+    QString position;
 
 public:
     User();
@@ -30,6 +31,7 @@ public:
     int id,
              QJsonArray projects_id);
 
+    QString get_position();
     QString get_name();
     QString get_username();
     QString get_password();
@@ -38,6 +40,7 @@ public:
     int get_id();
     QJsonArray get_projects_id();
 
+    void set_position(QString position);
     void set_name(QString name);
     void set_username(QString username);
     void set_password(QString password);

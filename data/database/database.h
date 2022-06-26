@@ -20,6 +20,12 @@ public:
     void add_project(Project project, int user_id);
     QJsonArray get_projects();
     QJsonArray get_projet_of_user(int user_id);
+    QJsonArray get_my_team(int id_team);
+    void add_member_to_project(int user_id,QString position, int id_project);
+    Project get_project_by_id(int id);
+    void edit_project_by_id(Project project, int id);
+    QString find_position(int user_id, int id_project);
+
 };
 
 #endif // DATABASE_H

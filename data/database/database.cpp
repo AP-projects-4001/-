@@ -8,6 +8,9 @@
 #include <QJsonArray>
 #include <QThread>
 #include <iostream>
+#include "mainwindow.h"
+#include <QMessageBox>
+#include "addmemberwindow.h"
 
 Database::Database() {
 
@@ -180,3 +183,71 @@ QJsonArray Database::get_projet_of_user(int user_id)
    }
    return filterdProjects;
 }
+
+QJsonArray Database::get_my_team(int id_team)
+{
+    Project project = get_project_by_id(id_team);
+    QJsonArray result;
+    foreach (QJsonValue value, project.getMembers()) {
+        User user = get_user_by_id(value["user_id"].toInt());
+        user.set_position(value["position"].toString());
+        result.append(user.toJsonObject());
+    }
+    return result;
+}
+
+void Database::add_member_to_project(int user_id, QString position, int id_project)
+{
+    Project project = get_project_by_id(id_project);
+    QJsonObject newMember;
+    foreach (QJsonValue value, project.getMembers()) {
+        if(value["user_id"] == user_id)
+            return;
+    }
+    newMember["position"] = position;
+    newMember["tasks_id"] = QJsonArray();
+    newMember["user_id"] = user_id;
+    project.getMembers().append(newMember);
+    edit_project_by_id(project,id_project);
+}
+
+Project Database::get_project_by_id(int id)
+{
+    QJsonArray projects = get_projects();
+    QJsonValue value = projects[id];
+    return Project(value["id"].toInt(),value["name"].toString(),value["members"].toArray());
+}
+
+void Database::edit_project_by_id(Project project, int id)
+{
+    QJsonArray projects = get_projects();
+    projects.replace(id,project.toJsonObject());
+    QJsonObject result;
+
+    result["Projects"] = projects;
+
+    QJsonDocument doc_projects(result);
+
+    QFile DBW("Projects.json");
+    DBW.open(QIODevice::WriteOnly);
+    DBW.write(doc_projects.toJson());
+
+    DBW.close();
+}
+
+QString Database::find_position(int user_id, int id_project)
+{
+    QString position;
+    Project project = get_project_by_id(id_project);
+    foreach (QJsonValue value, project.getMembers()) {
+        if (value["user_id"].toInt() == user_id)
+        {
+            position =  value["position"].toString();
+
+            break;
+        }
+    }
+    return position;
+}
+
+

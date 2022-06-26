@@ -53,13 +53,13 @@ void ProjectsWindow::fillList() {
 void ProjectsWindow::on_close_button_2_clicked()
 {
     QListWidgetItem *widgetItem =  ui->projects_list->currentItem();
-    qDebug() << widgetItem;
+//    qDebug() << widgetItem;
     if(widgetItem != nullptr)
     {
     int id = widgetItem->data(Qt::UserRole).toInt();
     emit send_project_id(id);
+    ProjectsWindow::close();
     } else {
         QMessageBox::warning(this, tr("Warning"), tr("Not Selected Project!"));
-
     }
 }
