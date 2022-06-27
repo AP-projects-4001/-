@@ -3,7 +3,6 @@
 #include "data/model/user.h"
 #include "data/database/database.h"
 #include <QMessageBox>
-#include <QDebug>
 
 ForgetPasswordWindow::ForgetPasswordWindow(QWidget *parent) :
         QDialog(parent),
@@ -16,8 +15,7 @@ ForgetPasswordWindow::~ForgetPasswordWindow() {
 }
 
 
-void ForgetPasswordWindow::on_save_button_clicked()
-{
+void ForgetPasswordWindow::on_save_button_clicked() {
     User user;
     Database database;
     user = database.get_user(ui->username_line->text());
@@ -43,7 +41,6 @@ void ForgetPasswordWindow::on_save_button_clicked()
 
 }
 
-void ForgetPasswordWindow::on_cancel_button_clicked()
-{
+void ForgetPasswordWindow::on_cancel_button_clicked() {
     ForgetPasswordWindow::close();
 }

@@ -4,7 +4,6 @@
 #include "utils\exception.h"
 #include "data/database/database.h"
 #include <QFile>
-#include <QDebug>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QString>

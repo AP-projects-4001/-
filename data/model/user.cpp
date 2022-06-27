@@ -1,7 +1,6 @@
 #include "user.h"
 #include "../../utils/exception.h"
 #include <QFile>
-#include <QDebug>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QString>
@@ -20,15 +19,23 @@ User::User() {
 
 }
 
-User::User(QString name, QString username, QString password, QString email, QString phone_number, int id, QJsonArray projects_id) {
+User::User(QString name, QString username, QString password, QString email, QString phone_number, int id
+           ) {
     this->name = name;
     this->username = username;
     this->password = password;
-    this->id =id;
+    this->id = id;
     this->email = email;
-    this->projects_id = projects_id;
     this->phone_number = phone_number;
 
+}
+
+QString User::get_position() {
+    return position;
+}
+
+void User::set_position(QString position) {
+    this->position = position;
 }
 
 QString User::get_name() {
@@ -52,14 +59,10 @@ QString User::get_phone_number() {
     return this->phone_number;
 }
 
-int User::get_id()
-{
+int User::get_id() {
     return this->id;
 }
 
-QJsonArray User::get_projects_id() {
-    return this->projects_id;
-}
 
 void User::set_name(QString name) {
     this->name = name;
@@ -81,12 +84,8 @@ void User::set_phone_number(QString phone_number) {
     this->phone_number = phone_number;
 }
 
-void User::set_projects_id(QJsonArray projects_id) {
-    this->projects_id = projects_id;
-}
 
-void User::set_id(int id)
-{
+void User::set_id(int id) {
     this->id = id;
 }
 
@@ -96,10 +95,9 @@ QJsonObject User::toJsonObject() {
     res["username"] = get_username();
     res["password"] = get_password();
     res["email"] = get_email();
-
+    res["position"] = get_position();
     res["id"] = get_id();
     res["phone_number"] = get_phone_number();
-    res["projects_id"] = get_projects_id();
 
     return res;
 }

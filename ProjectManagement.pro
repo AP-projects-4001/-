@@ -16,31 +16,47 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    addmemberwindow.cpp \
+    addtaskwindow.cpp \
     createaccountwindow.cpp \
+    createprojectwindow.cpp \
     data/database/database.cpp \
+    data/model/project.cpp \
+    data/model/task.cpp \
     data/model/user.cpp \
     forgetpasswordwindow.cpp \
     loginwindow.cpp \
     main.cpp \
     mainwindow.cpp \
+    projectswindow.cpp \
     settingwindow.cpp \
     utils/exception.cpp
 
 HEADERS += \
+    addmemberwindow.h \
+    addtaskwindow.h \
     createaccountwindow.h \
+    createprojectwindow.h \
     data/database/database.h \
+    data/model/project.h \
+    data/model/task.h \
     data/model/user.h \
     forgetpasswordwindow.h \
     loginwindow.h \
     mainwindow.h \
+    projectswindow.h \
     settingwindow.h \
     utils/exception.h
 
 FORMS += \
+    addmemberwindow.ui \
+    addtaskwindow.ui \
     createaccountwindow.ui \
+    createprojectwindow.ui \
     forgetpasswordwindow.ui \
     loginwindow.ui \
     mainwindow.ui \
+    projectswindow.ui \
     settingwindow.ui
 
 # Default rules for deployment.
