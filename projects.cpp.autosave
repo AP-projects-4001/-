@@ -2,18 +2,15 @@
 #include "ui_projects.h"
 
 Projects::Projects(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::Projects)
-{
+        QDialog(parent),
+        ui(new Ui::Projects) {
     ui->setupUi(this);
 }
 
-Projects::~Projects()
-{
+Projects::~Projects() {
     delete ui;
 }
 
-void Projects::on_create_project_button_clicked()
-{
-    
+void Projects::on_create_project_button_clicked() {
+
 }

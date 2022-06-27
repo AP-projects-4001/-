@@ -9,9 +9,8 @@
 
 
 SettingWindow::SettingWindow(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::SettingWindow)
-{
+        QDialog(parent),
+        ui(new Ui::SettingWindow) {
     ui->setupUi(this);
 
     User user;
@@ -25,16 +24,12 @@ SettingWindow::SettingWindow(QWidget *parent) :
 
 }
 
-SettingWindow::~SettingWindow()
-{
+SettingWindow::~SettingWindow() {
     delete ui;
 }
 
 
-
-
-void SettingWindow::on_save_button_clicked()
-{
+void SettingWindow::on_save_button_clicked() {
     if (ui->name->text() == "") {
         QMessageBox::warning(this, tr("Warning"), tr("The Name Is Null!"));
     } else if (ui->username->text() == "") {
@@ -68,7 +63,6 @@ void SettingWindow::on_save_button_clicked()
     }
 }
 
-void SettingWindow::on_pushButton_2_clicked()
-{
+void SettingWindow::on_pushButton_2_clicked() {
     SettingWindow::close();
 }

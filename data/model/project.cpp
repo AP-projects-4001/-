@@ -1,7 +1,6 @@
 #include "project.h"
 
-Project::Project()
-{
+Project::Project() {
 
 }
 
@@ -11,23 +10,27 @@ Project::Project(int id, QString name, QJsonArray members) {
     this->members = members;
 }
 
-QString Project::getName(){
+QString Project::getName() {
     return name;
 }
-int Project::getId(){
+
+int Project::getId() {
     return id;
 }
-QJsonArray Project::getMembers(){
+
+QJsonArray Project::getMembers() {
     return members;
 }
 
-void Project::setName(QString name){
+void Project::setName(QString name) {
     this->name = name;
 }
-void Project::setId(int id){
+
+void Project::setId(int id) {
     this->id = id;
 }
-void Project::setMembers(QJsonArray members){
+
+void Project::setMembers(QJsonArray members) {
     this->members = members;
 }
 

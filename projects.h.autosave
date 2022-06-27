@@ -4,20 +4,21 @@
 #include <QDialog>
 
 namespace Ui {
-class Projects;
+    class Projects;
 }
 
-class Projects : public QDialog
-{
+class Projects : public QDialog {
     Q_OBJECT
 
 public:
     explicit Projects(QWidget *parent = nullptr);
+
     ~Projects();
 
-private slots:
-    void on_create_project_button_clicked();
-    
+private
+    slots:
+            void on_create_project_button_clicked();
+
 private:
     Ui::Projects *ui;
 };

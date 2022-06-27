@@ -7,24 +7,21 @@
 #include <QMessageBox>
 
 CreateProjectWindow::CreateProjectWindow(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::CreateProjectWindow)
-{
+        QDialog(parent),
+        ui(new Ui::CreateProjectWindow) {
     ui->setupUi(this);
 }
 
-CreateProjectWindow::~CreateProjectWindow()
-{
+CreateProjectWindow::~CreateProjectWindow() {
     delete ui;
 }
 
-void CreateProjectWindow::on_save_button_clicked()
-{
-    if(ui->name_project_edit->text() != "") {
+void CreateProjectWindow::on_save_button_clicked() {
+    if (ui->name_project_edit->text() != "") {
         Project project;
         project.setName(ui->name_project_edit->text());
         Database database;
-        database.add_project(project,MainWindow::getUser().get_id());
+        database.add_project(project, MainWindow::getUser().get_id());
 //        database.edit_user_by_id(MainWindow::getUser().get_id(),)
         emit changedEvent();
         CreateProjectWindow::close();
@@ -33,7 +30,6 @@ void CreateProjectWindow::on_save_button_clicked()
     }
 }
 
-void CreateProjectWindow::on_close_button_clicked()
-{
+void CreateProjectWindow::on_close_button_clicked() {
     CreateProjectWindow::close();
 }

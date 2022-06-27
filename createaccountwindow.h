@@ -5,21 +5,25 @@
 #include <QString>
 
 namespace Ui {
-class CreateAccountWindow;
+    class CreateAccountWindow;
 }
 
-class CreateAccountWindow : public QDialog
-{
+class CreateAccountWindow : public QDialog {
     Q_OBJECT
 
 public:
     explicit CreateAccountWindow(QWidget *parent = nullptr);
+
     ~CreateAccountWindow();
-signals:
-    void signal_username(QString);
+
+    signals:
+            void signal_username(QString);
+
     void signal_password(QString);
-private slots:
-    void on_create_button_clicked();
+
+private
+    slots:
+            void on_create_button_clicked();
 
     void on_exitBtn_clicked();
 

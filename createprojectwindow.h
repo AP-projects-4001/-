@@ -4,24 +4,25 @@
 #include <QDialog>
 
 namespace Ui {
-class CreateProjectWindow;
+    class CreateProjectWindow;
 }
 
-class CreateProjectWindow : public QDialog
-{
+class CreateProjectWindow : public QDialog {
     Q_OBJECT
 
 public:
     explicit CreateProjectWindow(QWidget *parent = nullptr);
+
     ~CreateProjectWindow();
 
-private slots:
-    void on_save_button_clicked();
+private
+    slots:
+            void on_save_button_clicked();
 
     void on_close_button_clicked();
 
-signals:
-    void changedEvent();
+    signals:
+            void changedEvent();
 
 private:
     Ui::CreateProjectWindow *ui;

@@ -17,10 +17,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     addmemberwindow.cpp \
+    addtaskwindow.cpp \
     createaccountwindow.cpp \
     createprojectwindow.cpp \
     data/database/database.cpp \
     data/model/project.cpp \
+    data/model/task.cpp \
     data/model/user.cpp \
     forgetpasswordwindow.cpp \
     loginwindow.cpp \
@@ -32,10 +34,12 @@ SOURCES += \
 
 HEADERS += \
     addmemberwindow.h \
+    addtaskwindow.h \
     createaccountwindow.h \
     createprojectwindow.h \
     data/database/database.h \
     data/model/project.h \
+    data/model/task.h \
     data/model/user.h \
     forgetpasswordwindow.h \
     loginwindow.h \
@@ -46,6 +50,7 @@ HEADERS += \
 
 FORMS += \
     addmemberwindow.ui \
+    addtaskwindow.ui \
     createaccountwindow.ui \
     createprojectwindow.ui \
     forgetpasswordwindow.ui \
