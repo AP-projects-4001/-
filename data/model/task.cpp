@@ -28,7 +28,6 @@ QJsonObject Task::toJsonObject() {
     result["assignment"] = get_assignment();
     result["status"] = get_task_status();
     result["user_id"] = get_user_id();
-    result["task_id"] = get_task_id();
     result["project_id"] = get_project_id();
 
     return result;

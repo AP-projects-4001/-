@@ -12,6 +12,7 @@
 #include "addmemberwindow.h"
 #include "addtaskwindow.h"
 
+
 Database::Database() {
 
 }
@@ -336,6 +337,214 @@ void Database::delete_task(int id) {
     DBW.close();
 
 }
+
+void Database::add_chat(Chat chat)
+{
+
+   QJsonObject chats = get_chats();
+   QJsonObject body;
+   QJsonArray private_chat = chats["private"].toArray();
+   QJsonArray group_chat = chats["group"].toArray();
+
+   private_chat.append(chat.toJsonObject());
+
+   body["private"] = private_chat;
+   body["group"] = group_chat;
+
+   QJsonDocument doc_chat(body);
+   QFile DBW("Chats.json");
+   DBW.open(QIODevice::WriteOnly);
+   DBW.write(doc_chat.toJson());
+   DBW.close();
+
+
+}
+
+void Database::add_group_chat(Chat chat)
+{
+    QJsonObject chats = get_chats();
+    QJsonObject body;
+    QJsonArray private_chat = chats["private"].toArray();
+    QJsonArray group_chat = chats["group"].toArray();
+
+    group_chat.append(chat.toJsonObjectGroup());
+
+    body["private"] = private_chat;
+    body["group"] = group_chat;
+
+    QJsonDocument doc_chat(body);
+    QFile DBW("Chats.json");
+    DBW.open(QIODevice::WriteOnly);
+    DBW.write(doc_chat.toJson());
+    DBW.close();
+
+
+}
+
+QJsonObject Database::get_chats()
+{
+    QJsonObject res;
+    QFile DBR("Chats.json");
+    DBR.open(QIODevice::ReadOnly);
+    QByteArray qba = DBR.readAll();
+    QJsonDocument qjd = QJsonDocument::fromJson(qba);
+    QJsonObject qjo = qjd.object();
+    res = qjo;
+
+    DBR.close();
+
+    return res;
+}
+
+void Database::edit_chat_by_id(int user_id1, int user_id2, int project_id, Chat chat)
+{
+    QJsonObject chats = get_chats();
+    QJsonArray private_chat = chats["private"].toArray();
+    QJsonArray group = chats["group"].toArray();
+    int index = -1;
+
+    foreach(QJsonValue
+    value, private_chat) {
+        index+=1;
+
+        if( value["project_id"].toInt() == project_id){
+
+            if (value["user_id1"].toInt() == user_id1 && value["user_id2"].toInt() == user_id2) {
+                        private_chat.replace(index, chat.toJsonObject());
+
+                        break;
+            }else if (value["user_id1"].toInt() == user_id2 && value["user_id2"].toInt() == user_id1) {
+                             private_chat.replace(index, chat.toJsonObject());
+
+                             break;
+            }
+        }
+
+    }
+
+    QJsonObject result;
+
+    result["private"] = private_chat ;
+    result["group"] = group ;
+
+    QJsonDocument doc_projects(result);
+    QFile DBW("Chats.json");
+    DBW.open(QIODevice::WriteOnly);
+    DBW.write(doc_projects.toJson());
+    DBW.close();
+
+}
+
+QString Database::get_chat_by_id(int project_id, int user_id1, int user_id2)
+{
+    QJsonObject chats = get_chats();
+    QJsonArray private_chat = chats["private"].toArray();
+    QString text;
+    foreach (QJsonValue value, private_chat) {
+        if(value["project_id"].toInt() == project_id){
+            if(value["user_id1"].toInt() == user_id1 && value["user_id2"].toInt() == user_id2){
+                        text = value["text"].toString();
+                        return text;
+
+            }if(value["user_id1"].toInt() == user_id2 && value["user_id2"].toInt() == user_id1){
+                text = value["text"].toString();
+                return text;
+            }
+    }
+
+    }
+    return text;
+}
+
+QString Database::get_group_chat_by_id(int project_id)
+{
+    QJsonObject chats = get_chats();
+    QJsonArray group = chats["group"].toArray();
+    QString text;
+    foreach (QJsonValue value, group)
+    {
+        if(value["project_id"].toInt() == project_id){
+            text = value["text"].toString();
+            return text;
+            }
+    }
+    return text;
+
+}
+
+void Database::edit_group_chat_by_id(int project_id, Chat chat)
+{
+    QJsonObject chats = get_chats();
+    QJsonArray private_chat = chats["private"].toArray();
+    QJsonArray group = chats["group"].toArray();
+    int index = -1;
+    foreach(QJsonValue
+    value, group) {
+        index+=1;
+        if (value["project_id"].toInt() == project_id) {
+                    group.replace(index, chat.toJsonObjectGroup());
+                    break;
+        }
+    }
+
+    QJsonObject body;
+
+    body["private"] = private_chat;
+    body["group"] = group;
+
+    QJsonDocument doc_chat(body);
+    QFile DBW("Chats.json");
+    DBW.open(QIODevice::WriteOnly);
+    DBW.write(doc_chat.toJson());
+    DBW.close();
+}
+
+bool Database::exist_chat(int project_id, int user_id1, int user_id2)
+{
+    QJsonObject chats = get_chats();
+    QJsonArray private_chat = chats["private"].toArray();
+    bool exist = false;
+
+        foreach (QJsonValue value, private_chat) {
+            if(value["project_id"].toInt() == project_id){
+                if(value["user_id1"].toInt() == user_id1 && value["user_id2"].toInt() == user_id2){
+                            exist = true;
+                            return exist;
+
+                }if(value["user_id1"].toInt() == user_id2 && value["user_id2"].toInt() == user_id1){
+                            exist = true;
+                            return exist;
+                }
+        }
+
+    }
+       return exist;
+}
+
+bool Database::exsit_group(int project_id)
+{
+    QJsonObject chats = get_chats();
+    QJsonArray group_chat = chats["group"].toArray();
+    bool exist = false;
+            foreach(QJsonValue
+            value, group_chat)
+            {
+                if(value["project_id"].toInt() == project_id)
+                {
+
+                   exist = true;
+                   return exist;
+
+                }
+            }
+
+           return exist;
+
+}
+
+
+
+
 
 
 

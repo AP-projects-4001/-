@@ -18,9 +18,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     addmemberwindow.cpp \
     addtaskwindow.cpp \
+    chatwindow.cpp \
     createaccountwindow.cpp \
     createprojectwindow.cpp \
     data/database/database.cpp \
+    data/model/chat.cpp \
     data/model/project.cpp \
     data/model/task.cpp \
     data/model/user.cpp \
@@ -35,9 +37,11 @@ SOURCES += \
 HEADERS += \
     addmemberwindow.h \
     addtaskwindow.h \
+    chatwindow.h \
     createaccountwindow.h \
     createprojectwindow.h \
     data/database/database.h \
+    data/model/chat.h \
     data/model/project.h \
     data/model/task.h \
     data/model/user.h \
@@ -51,6 +55,7 @@ HEADERS += \
 FORMS += \
     addmemberwindow.ui \
     addtaskwindow.ui \
+    chatwindow.ui \
     createaccountwindow.ui \
     createprojectwindow.ui \
     forgetpasswordwindow.ui \
@@ -63,3 +68,5 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+

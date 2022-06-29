@@ -4,6 +4,7 @@
 #include "..\model\user.h"
 #include "..\model\project.h"
 #include "data/model/task.h"
+#include "data/model/chat.h"
 
 class Database {
 public:
@@ -53,6 +54,22 @@ public:
     void edit_task_by_id(int id, Task task);
 
     void delete_task(int id);
+
+
+    // chat table
+    void add_chat(Chat chat);
+    void add_group_chat(Chat chat);
+    QJsonObject get_chats();
+    void edit_chat_by_id(int user_id1, int user_id2, int project_id, Chat chat);
+    QString get_chat_by_id(int project_id, int user_id1, int user_id2);
+    QString get_group_chat_by_id(int project_id);
+    void edit_group_chat_by_id(int project_id, Chat chat);
+    bool exist_chat(int project_id, int user_id1, int user_id2);
+    bool exsit_group(int project_id);
+
+
+
+
 
 };
 

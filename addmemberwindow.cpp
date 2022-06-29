@@ -91,7 +91,6 @@ void AddMemberWindow::on_save_button_clicked() {
         QJsonObject newMember;
         newMember["position"] = ui->my_team_list->item(i)->data(1).toString();
         newMember["user_id"] = ui->my_team_list->item(i)->data(Qt::UserRole).toInt();
-        newMember["tasks_id"] = QJsonArray();
         members.append(newMember);
     }
     project.setMembers(members);

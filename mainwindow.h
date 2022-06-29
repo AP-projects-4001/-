@@ -46,6 +46,8 @@ private
 
     void on_tasks_list_itemDoubleClicked(QListWidgetItem *item);
 
+    void on_chat_button_clicked();
+
 private:
     Ui::MainWindow *ui;
     static User user;

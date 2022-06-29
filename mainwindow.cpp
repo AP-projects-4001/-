@@ -11,8 +11,7 @@
 #include "addtaskwindow.h"
 #include "QJsonArray"
 #include "QJsonValue"
-#include <iomanip>
-#include <cstring>
+#include "chatwindow.h"
 
 #include <iostream>
 
@@ -150,4 +149,10 @@ void MainWindow::on_tasks_list_itemDoubleClicked(QListWidgetItem *item) {
     AddTaskWindow *atw = new AddTaskWindow(this, &task);
     atw->show();
     connect(atw, SIGNAL(edit_task()), this, SLOT(changed_task()));
+}
+
+void MainWindow::on_chat_button_clicked()
+{
+    ChatWindow *cw = new ChatWindow(this);
+    cw->show();
 }
