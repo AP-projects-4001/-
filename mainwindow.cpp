@@ -12,7 +12,6 @@
 #include "QJsonArray"
 #include "QJsonValue"
 #include "chatwindow.h"
-
 #include <iostream>
 
 using namespace std;
@@ -92,7 +91,7 @@ void MainWindow::on_my_account_button_clicked() {
 }
 
 void MainWindow::on_my_project_button_clicked() {
-    ProjectsWindow *projectsWindow = new ProjectsWindow();
+    ProjectsWindow *projectsWindow = new ProjectsWindow(this);
     projectsWindow->show();
 
     connect(projectsWindow, SIGNAL(send_project_id(int)), this, SLOT(catch_id(int)));
@@ -100,6 +99,7 @@ void MainWindow::on_my_project_button_clicked() {
 }
 
 void MainWindow::catch_id(int id) {
+
     id_project = id;
     Database database;
     Project project = database.get_project_by_id(id);
@@ -119,7 +119,11 @@ void MainWindow::on_add_member_button_clicked() {
 }
 
 void MainWindow::show_button() {
+    ui->add_task_button->setDisabled(true);
+    ui->add_member_button->setDisabled(true);
+    ui->chat_button->setDisabled(true);
     Database database;
+
 
     if (database.find_position(user.get_id(), get_id_porject()) == "leader") {
         ui->add_task_button->setEnabled(true);

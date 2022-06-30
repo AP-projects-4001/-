@@ -43,6 +43,11 @@ AddTaskWindow::AddTaskWindow(QWidget *parent, Task *task) :
         } else {
             ui->finished_button->setChecked(true);
         }
+        if(ui->assigned->text() == "No One" && database.find_position(MainWindow::getUser().get_id(), MainWindow::get_id_porject()) == "member" ){
+            ui->save_button->setDisabled(true);
+            ui->finished_button->setEnabled(false);
+            ui->doing_button->setEnabled(false);
+        }
 
 
         QString position = database.find_position(MainWindow::getUser().get_id(), MainWindow::get_id_porject());
@@ -52,6 +57,7 @@ AddTaskWindow::AddTaskWindow(QWidget *parent, Task *task) :
             ui->task_name->setEnabled(false);
             ui->task_description->setEnabled(false);
             ui->my_team_list->setEnabled(false);
+
         }
 
     }

@@ -6,7 +6,6 @@
 #include "forgetpasswordwindow.h"
 #include "mainwindow.h"
 #include <QString>
-#include <QDebug>
 #include <QMessageBox>
 
 using namespace std;

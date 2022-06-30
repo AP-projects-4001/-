@@ -217,7 +217,7 @@
     <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(255, 170, 0);</string>
+    <string notr="true">color: rgb(255, 85, 0);</string>
    </property>
    <property name="text">
     <string>Doing</string>
@@ -244,7 +244,7 @@
     <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(74, 223, 0);</string>
+    <string notr="true">color: rgb(0, 191, 44);</string>
    </property>
    <property name="text">
     <string>Finished</string>

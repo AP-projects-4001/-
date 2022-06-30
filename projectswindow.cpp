@@ -20,7 +20,7 @@ ProjectsWindow::~ProjectsWindow() {
 }
 
 void ProjectsWindow::on_create_project_button_clicked() {
-    CreateProjectWindow *createProjectWindow = new CreateProjectWindow();
+    CreateProjectWindow *createProjectWindow = new CreateProjectWindow(this);
     createProjectWindow->show();
 
     connect(createProjectWindow, SIGNAL(changedEvent()), this, SLOT(changedEvent()));

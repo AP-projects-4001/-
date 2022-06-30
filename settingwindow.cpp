@@ -5,7 +5,6 @@
 #include "mainwindow.h"
 #include "utils/exception.h"
 #include <QMessageBox>
-#include <QDebug>
 
 
 SettingWindow::SettingWindow(QWidget *parent) :

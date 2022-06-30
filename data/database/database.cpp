@@ -233,8 +233,8 @@ QString Database::find_position(int user_id, int id_project) {
     value, project.getMembers()) {
         if (value["user_id"].toInt() == user_id) {
             position = value["position"].toString();
+            return position;
 
-            break;
         }
     }
     return position;
@@ -539,7 +539,6 @@ bool Database::exsit_group(int project_id)
             }
 
            return exist;
-
 }
 
 
