@@ -8,7 +8,7 @@ The "Project management" project of "ما" group
 3 - Creating a graphical interface.
 ```
 
-# How to use the application
+# How to use the application?
 ```
 1 - First, you create an account in the program.
 2 - Then through the My Projects section, you can create a project or continue your activity in the projects you are a member of.
